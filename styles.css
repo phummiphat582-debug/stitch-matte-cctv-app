@@ -263,5 +263,16 @@ img { display: block; max-width: 100%; }
 .plan-canvas.has-plan-image .plan-room { display: none; }
 .plan-layer { position: relative; flex: 0 0 auto; max-width: 100%; max-height: 100%; overflow: hidden; }
 .plan-image { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: fill; opacity: .96; }
+.plan-fullscreen { position: fixed; inset: 0; z-index: 120; background: #050608; }
+.plan-fullscreen .plan-canvas.has-plan-image { width: 100vw; height: 100vh; min-height: 0; }
+.fullscreen-exit { position: absolute; top: 16px; right: 16px; z-index: 130; display: inline-flex; align-items: center; gap: 5px; min-height: 40px; padding: 8px 11px; border: 1px solid #3b424d; border-radius: 5px; background: rgba(10,11,13,.78); color: var(--white); font: 600 11px/15px "JetBrains Mono"; opacity: .72; }
+.fullscreen-exit:hover, .fullscreen-exit:focus-visible { opacity: 1; }
+.placement-pin { position: absolute; z-index: 8; width: 46px; height: 58px; display: grid; place-items: start center; transform: translate(-50%, -100%); color: var(--amber); filter: drop-shadow(0 3px 4px rgba(0,0,0,.8)); pointer-events: auto; cursor: grab; }
+.placement-pin:active { cursor: grabbing; }
+.placement-pin .icon { font-size: 52px; line-height: 52px; text-shadow: 0 0 0 #090b0e, 0 0 9px rgba(242,178,76,.65); }
+.placement-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.placement-controls > span { min-width: 0; }
+.placement-actions { display: flex; flex: 0 0 auto; gap: 6px; }
+.placement-actions .btn { min-height: 34px; padding: 7px 9px; font-size: 10px; }
 .blueprint-image { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: fill; opacity: .72; }
 .blueprint .frame, .blueprint .blue-dot, .blueprint .plan-empty { z-index: 1; }
