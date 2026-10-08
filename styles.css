@@ -259,7 +259,7 @@ img { display: block; max-width: 100%; }
 .project-actions { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
 .plan-upload-btn { position: relative; min-height: 34px; padding: 7px 9px; cursor: pointer; font-size: 10px; }
 .plan-upload-btn input { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; opacity: 0; }
-.plan-canvas.has-plan-image { background: #050608; }
+.plan-canvas.has-plan-image { height: auto; min-height: 260px; max-height: calc(100vh - 250px); aspect-ratio: var(--plan-ratio, 4 / 3); background: #050608; }
 .plan-canvas.has-plan-image .plan-room { display: none; }
 .plan-image { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: fill; opacity: .96; }
 .blueprint-image { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: fill; opacity: .72; }
