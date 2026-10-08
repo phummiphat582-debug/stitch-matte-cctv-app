@@ -1,6 +1,6 @@
 # Stitch Matte CCTV Field Survey UI
 
-เว็บแอพ static SPA สำหรับจำลองหน้าจอจาก `stitch_matte_monochrome_ui_design.zip`
+เว็บแอพ static SPA สำหรับทำแปลนสำรวจ CCTV จาก `stitch_matte_monochrome_ui_design.zip` โดยเริ่มต้นเป็นข้อมูลว่าง ไม่มีข้อมูลเดโม่
 
 ## เปิดใช้งาน
 
@@ -12,11 +12,18 @@ python -m http.server 4173 --directory .
 
 จากนั้นเปิด `http://localhost:4173/`
 
+## Workflow หลัก
+
+1. เปิดหน้า `แปลนสำรวจ`
+2. กดปุ่ม `เพิ่มกล้อง` แล้วคลิกตำแหน่งบนแปลน
+3. กรอกรหัส/รุ่น/หมายเหตุ และแนบภาพจริงจากเครื่อง
+4. กดบันทึก แล้วคลิกหมุดเดิมเพื่อเปิดภาพจริงของจุดนั้นแบบ modal
+
+ข้อมูลจุด, พิกัด และภาพที่แนบถูกเก็บใน `localStorage` ของเบราว์เซอร์เครื่องนั้น จึงไม่ปะปนกับข้อมูลเดโม่และใช้งานออฟไลน์ได้ หากต้องการให้หลายคนเห็นข้อมูลชุดเดียวกัน ต้องเชื่อมฐานข้อมูลกลาง เช่น Firebase หรือ Supabase เพิ่มภายหลัง
+
 ## หน้าจอที่รวมไว้
 
 - แปลนสำรวจ: floor plan canvas, marker, FOV, zoom และรายละเอียด CAM-01
-- อุปกรณ์: search, status/type filters, BOM summary, photo log และ export actions
-- รายละเอียดอุปกรณ์: state matrix, network specs, DORI range, field photos และ offline save
-- สรุป/ส่งออก: blueprint preview, export packages, layer switches และ PDF/Excel actions
-
-ไฟล์รูปตัวอย่างใช้ URL เดียวกับ reference ที่แนบมา และมี fallback ซ่อนรูปอัตโนมัติเมื่อไม่สามารถโหลดภายนอกได้
+- อุปกรณ์: search, status/type filters, summary และรายการจุดที่ผู้ใช้เพิ่มเอง
+- รายละเอียดอุปกรณ์: เปลี่ยนสถานะ, แก้ไขรายละเอียด และแนบภาพจริง
+- สรุป/ส่งออก: blueprint preview, CSV export และสรุปภาพจริง
