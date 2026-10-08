@@ -70,12 +70,12 @@ img { display: block; max-width: 100%; }
 .badge .dot { width: 8px; height: 8px; color: var(--green); }
 .metric-line { display: flex; align-items: center; gap: 14px; overflow: auto; padding: 8px 14px; background: #0f1114; color: var(--muted); font: 500 11px/16px "JetBrains Mono"; white-space: nowrap; }
 .tools { display: flex; align-items: center; gap: 4px; padding: 10px 14px; background: #111317; border-bottom: 1px solid #171a1f; }
-.tool-btn { width: 45px; height: 45px; display: grid; place-items: center; border-radius: 4px; background: #171a1f; color: var(--muted); }
+.tool-btn { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 4px; background: #171a1f; color: var(--muted); transition: background-color .16s ease, color .16s ease, transform .16s ease; touch-action: manipulation; }
 .tool-btn:disabled { cursor: not-allowed; opacity: .35; }
 .tool-btn.selected { background: var(--white); color: #17191d; }
 .zoom { display: flex; align-items: center; gap: 11px; margin-left: auto; font: 600 12px/16px "JetBrains Mono"; }
 .zoom button { width: 30px; height: 32px; background: #171a1f; color: var(--muted); font-size: 20px; }
-.plan-canvas { position: relative; height: 600px; overflow: hidden; background-color: var(--canvas); background-image: radial-gradient(#31363d 1px, transparent 1px), linear-gradient(#191d23 1px, transparent 1px), linear-gradient(90deg, #191d23 1px, transparent 1px); background-size: 17px 17px, 68px 68px, 68px 68px; }
+.plan-canvas { position: relative; height: 600px; overflow: hidden; background-color: var(--canvas); background-image: radial-gradient(#31363d 1px, transparent 1px), linear-gradient(#191d23 1px, transparent 1px), linear-gradient(90deg, #191d23 1px, transparent 1px); background-size: 17px 17px, 68px 68px, 68px 68px; touch-action: manipulation; }
 .plan-room { position: absolute; inset: 22px 26px 28px; border: 3px solid #373d48; outline: 1px solid #171a1e; }
 .plan-room:before, .plan-room:after { content: ""; position: absolute; background: #292e37; }
 .plan-room:before { width: 1px; top: 0; bottom: 0; left: 33%; box-shadow: 140px 0 #292e37; }
@@ -86,9 +86,9 @@ img { display: block; max-width: 100%; }
 .plan-cable.one { width: 160px; left: 23%; top: 69%; } .plan-cable.two { width: 170px; left: 52%; top: 70%; transform: rotate(-90deg); border-color: var(--purple); }
 .fov { position: absolute; width: 150px; height: 90px; border: 1px dashed #aab1bb; border-left: 0; border-bottom: 0; border-radius: 0 100% 0 0; transform: rotate(24deg); }
 .fov.one { left: 46%; top: 34%; } .fov.two { left: 47%; bottom: 5%; transform: rotate(-14deg); }
-.marker { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 2px; font: 500 11px/14px "JetBrains Mono"; }
+.marker { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 2px; transform: translate(-50%, -50%); font: 500 11px/14px "JetBrains Mono"; transition: filter .16s ease; }
 .marker .tag { padding: 4px 7px; border-radius: 3px; background: #15181d; border: 1px solid #252b33; white-space: nowrap; }
-.marker .node { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 7px; background: #15181d; border: 1px solid #20262e; }
+.marker .node { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 8px; background: #15181d; border: 1px solid #20262e; }
 .marker .node .icon { font-size: 23px; }
 .marker .coord { padding: 3px 5px; color: var(--muted); background: rgba(10,11,13,.85); font-size: 10px; }
 .marker.cam1 { right: 17%; bottom: 18%; } .marker.cam2 { left: 43%; top: 43%; } .marker.cam3 { left: 7%; top: 9%; } .marker.sw1 { left: 11%; bottom: 20%; }
@@ -259,8 +259,9 @@ img { display: block; max-width: 100%; }
 .project-actions { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
 .plan-upload-btn { position: relative; min-height: 34px; padding: 7px 9px; cursor: pointer; font-size: 10px; }
 .plan-upload-btn input { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; opacity: 0; }
-.plan-canvas.has-plan-image { height: auto; min-height: 260px; max-height: calc(100vh - 250px); aspect-ratio: var(--plan-ratio, 4 / 3); background: #050608; }
+.plan-canvas.has-plan-image { display: flex; align-items: center; justify-content: center; height: clamp(440px, 72vh, 760px); max-height: none; aspect-ratio: auto; background: #050608; }
 .plan-canvas.has-plan-image .plan-room { display: none; }
+.plan-layer { position: relative; flex: 0 0 auto; max-width: 100%; max-height: 100%; overflow: hidden; }
 .plan-image { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: fill; opacity: .96; }
 .blueprint-image { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: fill; opacity: .72; }
 .blueprint .frame, .blueprint .blue-dot, .blueprint .plan-empty { z-index: 1; }
